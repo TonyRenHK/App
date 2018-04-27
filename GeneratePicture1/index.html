@@ -112,17 +112,24 @@
 
                     </div>
                     <div id="menu1" class="tab-pane fade">
+                        <label >Width:</label>
+						 <br/>
+						 
+                        <select>
+                          <option value="Default">Default</option>
+                          <option value="Windows">Windows</option>
+                        </select>
+  
                          <label >Preview Width:</label>
 						 <br/>
                         <input id="PreviewWidthId" type="text" name="fname" class="InputText"  /><br/>
-						<label >Picture Width:</label>
-						<br/>
-                        <input id="PictureWidthId" type="text" name="fname" class="InputText"  /><br/>
+						
 						<label >QR Code Width :</label>
 						<br/>
 						<input id="QRCodeWidthId" type="text" name="fname"  value="160"  class="InputText"  /><br/>
                     </div>
                     <div id="menu2" class="tab-pane fade">
+                        
 					</div>
                     <div id="menu3" class="tab-pane fade">
                         <div id="PreviewDivId"></div>
@@ -159,7 +166,6 @@
         $(document).ready(function() {
             var PictureWidth = document.getElementById("editor").clientWidth;
             $('#PreviewWidthId').val(PictureWidth - 200);
-            $('#PictureWidthId').val(PictureWidth - 110);
             console.log('PictureWidth : ' + PictureWidth);
             window.takeScreenShot = function() {
                 GeneratingContentDIV();
@@ -176,14 +182,18 @@
 			console.log('QRCodeWidth : '+QRCodeWidth);
             var contentValue = $('#editor').html(); //val
 
-            var WechatLogoimageHTML = '<div style="text-align: center;" ><img src="LikeHK_WechatPublicLogo.jpg" alt="Logo" width="100em" height="100em" /></div>';
+            var WechatLogoimageHTML = '<div style="text-align: center;" ><img  src="LikeHK_WechatPublicLogo.jpg" alt="Logo" width="100em" height="100em" /></div>';
 			
             var WechatQRCodeimageHTML = '<div style="text-align: center;" ><img src="LikeHK_Wechat_public_QRCode.jpg" alt="QR Code" width="'+QRCodeWidth+'em" height="'+QRCodeWidth+'em" /></div>';
 
 
             var ClientWidthNumber = $('#PreviewWidthId').val();
-            var HeaderDiv = '<div style="background-color: white;width:' + ClientWidthNumber + 'px  "  >';
-            var OutputHTML = HeaderDiv + WechatLogoimageHTML + '' + contentValue + ' <br/>' + WechatQRCodeimageHTML + '<br/></div>'
+            var HeaderDiv = '<div  style="background-color: white;width:' + ClientWidthNumber + 'px  "  >  ';
+            var OutputHTML = HeaderDiv + WechatLogoimageHTML +
+            '<hr/> ' + contentValue 
+            + '<hr/>' + WechatQRCodeimageHTML + '<br/></div>';
+            
+            
             $('#TempDivId').html(OutputHTML);
             $('#TempDivId').css('width', ClientWidthNumber);
 
@@ -203,7 +213,7 @@
                     $('#canvasImg').html('<img src="' + canvasImg + '" alt="">');
                     $('#TempDivId').html(''); // clear preview div 
                 },
-                width: $('#PictureWidthId').val()
+                width: $('#PreviewWidthId').val()-90
             });
         }
 
