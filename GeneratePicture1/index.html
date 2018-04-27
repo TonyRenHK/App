@@ -75,8 +75,8 @@
                         Please input
                     </div>
                     <button class='btn' onclick="takeScreenShot()">to image</button>
-
-                    <div id="TempDivId">2222</div>
+                    <br/>
+                    <div id="TempDivId"></div>
                     <br/> Output:
                     <br/>
                     <div id="canvasImg"></div>
@@ -95,7 +95,6 @@
 
             window.takeScreenShot = function() {
                 GeneratingContentDIV();
-
                 GeneratingPicture();
 
 
@@ -109,13 +108,13 @@
         function GeneratingContentDIV() {
             var contentValue = $('#editor').html(); //val
             //console.log($('#editor').html());
-            var WechatLogoimageHTML = '<img src="LikeHK_WechatPublicLogo.jpg" alt="QR Code" width="100em" height="100em">'
-            var WechatQRCodeimageHTML = '<img src="LikeHK_Wechat_public_QRCode.jpg" alt="QR Code" width="100em" height="100em">'
+            var WechatLogoimageHTML = '<div style="text-align: center;" ><img src="LikeHK_WechatPublicLogo.jpg" alt="QR Code" width="100em" height="100em" /></div>'
+            var WechatQRCodeimageHTML = '<div style="text-align: center;" ><img src="LikeHK_Wechat_public_QRCode.jpg" alt="QR Code" width="150em" height="150em" /></div>'
 
-            $('#TempDivId').html(contentValue + '<br/> <br/>' + WechatLogoimageHTML + '<br/>' + WechatQRCodeimageHTML + '<br/>');
+            $('#TempDivId').html('<div style="background-color: white;" > '+WechatLogoimageHTML+ '<br/>' + contentValue + '<br/> <br/>'  + WechatQRCodeimageHTML + '<br/></div>');
 
         }
-
+        
         function GeneratingPicture() {
             html2canvas(document.getElementById("TempDivId"), {
                 onrendered: function(canvas) {
@@ -124,7 +123,7 @@
                     $('#canvasImg').html('<img src="' + canvasImg + '" alt="">');
                     $('#TempDivId').html('');
                 },
-                width: 400
+                width: document.getElementById("editor").clientWidth
             });
         }
 
