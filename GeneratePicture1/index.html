@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div id='editor' class='span9' style='' contenteditable>
-                        Please input
+                         
                     </div>
 
                 </div>
@@ -82,8 +82,8 @@
                  
                 <button class='btn' onclick="takeScreenShot()"> To image</button>
                 <br/>
-                <div id="TempDivId" style="width:800px;" ></div>
-                <br/> Output Image:
+                <div id="TempDivId"   ></div>
+                <br/> Output Image:<input id="PreviewWidthId" type="text" name="fname" />  <input id="PictureWidthId" type="text" name="fname" />  
                 <br/>
                 <div id="canvasImg" ></div>
             </div>
@@ -99,6 +99,8 @@
     <script>
         $(document).ready(function() {
             var PictureWidth = document.getElementById("editor").clientWidth;
+			$('#PreviewWidthId').val(PictureWidth-200);
+			$('#PictureWidthId').val(PictureWidth-110);
             console.log('PictureWidth : '+PictureWidth);
             window.takeScreenShot = function() {
                 GeneratingContentDIV();
@@ -115,25 +117,31 @@
             
             var WechatLogoimageHTML = '<div style="text-align: center;" ><img src="LikeHK_WechatPublicLogo.jpg" alt="QR Code" width="100em" height="100em" /></div>';
             var WechatQRCodeimageHTML = '<div style="text-align: center;" ><img src="LikeHK_Wechat_public_QRCode.jpg" alt="QR Code" width="160em" height="160em" /></div>';
-            var ClientWidthNumber=document.getElementById("editor").clientWidth - 200;
+            
+			
+			var ClientWidthNumber=$('#PreviewWidthId').val();
             var HeaderDiv = '<div style="background-color: white;width:' +ClientWidthNumber+  'px  "  >';
             
             $('#TempDivId').html(HeaderDiv + WechatLogoimageHTML + '' + contentValue + ' <br/>' + WechatQRCodeimageHTML + '<br/></div>');
-
+			$('#TempDivId').css('width', ClientWidthNumber);
         }
 
         function GeneratingPicture() {
+		
+		
             html2canvas(document.getElementById("TempDivId"), {
                 onrendered: function(canvas) {
-                    //document.body.appendChild(canvas);, height: 220
+                    
                     var canvasImg = canvas.toDataURL("image/jpg");
                     $('#canvasImg').html('<img src="' + canvasImg + '" alt="">');
                     // clear preview div $('#TempDivId').html('');
                 },
-                width: document.getElementById("editor").clientWidth-110
+                width: $('#PictureWidthId').val()
             });
         }
 
+		
+		
         $(function() {
             $('#editControls a').click(function(e) {
                 switch ($(this).data('role')) {
