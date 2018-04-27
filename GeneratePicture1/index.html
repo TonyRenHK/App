@@ -8,6 +8,7 @@
     <link href="assets/css/font-awesome.css" rel="stylesheet">
     <style>
         body {}
+
         .content {
             margin: 100px;
         }
@@ -111,10 +112,10 @@
             var WechatLogoimageHTML = '<div style="text-align: center;" ><img src="LikeHK_WechatPublicLogo.jpg" alt="QR Code" width="100em" height="100em" /></div>'
             var WechatQRCodeimageHTML = '<div style="text-align: center;" ><img src="LikeHK_Wechat_public_QRCode.jpg" alt="QR Code" width="150em" height="150em" /></div>'
 
-            $('#TempDivId').html('<div style="background-color: white;" > '+WechatLogoimageHTML+ '<br/>' + contentValue + '<br/> <br/>'  + WechatQRCodeimageHTML + '<br/></div>');
+            $('#TempDivId').html('<div style="background-color: white;" > ' + WechatLogoimageHTML + '<br/>' + contentValue + '<br/> <br/>' + WechatQRCodeimageHTML + '<br/></div>');
 
         }
-        
+
         function GeneratingPicture() {
             html2canvas(document.getElementById("TempDivId"), {
                 onrendered: function(canvas) {
