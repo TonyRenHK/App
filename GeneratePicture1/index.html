@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Generate Picture 1.0.1 </title>
+    <title>Generate Picture 1.0.0 </title>
     <link href="assets/css/bootstrap-combined.min.css" rel="stylesheet">
     <link href="assets/css/font-awesome.css" rel="stylesheet">
     <style>
@@ -111,7 +111,7 @@
             
             var WechatLogoimageHTML = '<div style="text-align: center;" ><img src="LikeHK_WechatPublicLogo.jpg" alt="QR Code" width="100em" height="100em" /></div>';
             var WechatQRCodeimageHTML = '<div style="text-align: center;" ><img src="LikeHK_Wechat_public_QRCode.jpg" alt="QR Code" width="160em" height="160em" /></div>';
-            var ClientWidthNumber=document.getElementById("editor").clientWidth - 100;
+            var ClientWidthNumber=document.getElementById("editor").clientWidth - 200;
             var HeaderDiv = '<div style="background-color: white;width:' +ClientWidthNumber+  'px  "  >';
             
             $('#TempDivId').html(HeaderDiv + WechatLogoimageHTML + '' + contentValue + ' <br/>' + WechatQRCodeimageHTML + '<br/></div>');
@@ -126,7 +126,7 @@
                     $('#canvasImg').html('<img src="' + canvasImg + '" alt="">');
                     // clear preview div $('#TempDivId').html('');
                 },
-                width: document.getElementById("editor").clientWidth
+                width: document.getElementById("editor").clientWidth+100
             });
         }
 
