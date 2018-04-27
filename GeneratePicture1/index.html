@@ -112,14 +112,13 @@
 
                     </div>
                     <div id="menu1" class="tab-pane fade">
-                        <label >Width:</label>
+                        <label >select Width:</label>
 						 <br/>
-						 
-                        <select>
+                        <select  class="InputText" id="SelectWidth" onchange="ChangeSelectWidth();" >
                           <option value="Default">Default</option>
                           <option value="Windows">Windows</option>
                         </select>
-  
+                        <br/>
                          <label >Preview Width:</label>
 						 <br/>
                         <input id="PreviewWidthId" type="text" name="fname" class="InputText"  /><br/>
@@ -164,9 +163,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <script>
         $(document).ready(function() {
-            var PictureWidth = document.getElementById("editor").clientWidth;
-            $('#PreviewWidthId').val(PictureWidth - 200);
-            console.log('PictureWidth : ' + PictureWidth);
+            //var PictureWidth = document.getElementById("editor").clientWidth;
+            $('#PreviewWidthId').val(400);
+            //console.log('PictureWidth : ' + PictureWidth);
             window.takeScreenShot = function() {
                 GeneratingContentDIV();
                 GeneratingPicture();
@@ -204,16 +203,33 @@
         }
 
         function GeneratingPicture() {
-
-
+            
+            
+            var canvas = document.createElement("canvas"),
+            w=$('#PreviewWidthId').width(),
+            h=$('#PreviewWidthId').height();
+            canvas.width = w * 4;
+            canvas.height = h * 4;
+            canvas.style.width = w + "px";
+            canvas.style.height = h + "px";
+            var context = canvas.getContext("2d");
+            context.scale(4,4);
+            
+            
+            
+            var pictureWidth = Number($('#PreviewWidthId').val()) + 100;
+            console.log('pictureWidth: '+pictureWidth);
             html2canvas(document.getElementById("TempDivId"), {
+                allowTaint: false, taintTest: true, canvas: canvas,
                 onrendered: function(canvas) {
 
                     var canvasImg = canvas.toDataURL("image/jpg");
                     $('#canvasImg').html('<img src="' + canvasImg + '" alt="">');
+                    
+                    
                     $('#TempDivId').html(''); // clear preview div 
                 },
-                width: $('#PreviewWidthId').val()-90
+                width: pictureWidth
             });
         }
 
@@ -234,6 +250,17 @@
 
             })
         });
+        
+        function ChangeSelectWidth(){
+            console.log('2'+$( "#SelectWidth" ).val());
+            if($( "#SelectWidth" ).val()=='Windows'){
+                var PictureWidth = document.getElementById("editor").clientWidth;
+                $('#PreviewWidthId').val(PictureWidth-200);
+            }
+        }
+        
+        
+        
     </script>
 </body>
 
