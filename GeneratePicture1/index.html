@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
 
-    
+
 <head>
     <meta charset="utf-8">
     <title>Generate Picture 0.0.3 </title>
-    <link href="assets/css/bootstrap-combined.min.css" rel="stylesheet">
+    <!----<link href="assets/css/bootstrap-combined.min.css" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="assets/css/font-awesome.css" rel="stylesheet">
     <style>
         body {}
 
-        
+
         .content {
-            margin: 100px;
+		    margin-Top: 20px;
+            margin-right: 100px;
+			margin-left: 100px;
         }
 
         #editor {
@@ -32,76 +35,113 @@
 <body>
     <div class="content">
         <div class="container-fluid">
-            <div id='pad-wrapper' class="row">
-                <div id="editparent">
-                    <div id='editControls' class='span9' style=' padding:5px;'>
-                        <div class='btn-group'>
-                            <a class='btn' data-role='undo' href='#'><i class='icon-undo'></i></a>
-                            <a class='btn' data-role='redo' href='#'><i class='icon-repeat'></i></a>
-                        </div>
-                        <div class='btn-group'>
-                            <a class='btn' data-role='bold' href='#'><b>Bold</b></a>
-                            <a class='btn' data-role='italic' href='#'><em>Italic</em></a>
-                            <a class='btn' data-role='underline' href='#'><u><b>U</b></u></a>
-                            <a class='btn' data-role='strikeThrough' href='#'><strike>abc</strike></a>
-                        </div>
-                        <div class='btn-group'>
-                            <a class='btn' data-role='justifyLeft' href='#'><i class='icon-align-left'></i></a>
-                            <a class='btn' data-role='justifyCenter' href='#'><i class='icon-align-center'></i></a>
-                            <a class='btn' data-role='justifyRight' href='#'><i class='icon-align-right'></i></a>
-                            <a class='btn' data-role='justifyFull' href='#'><i class='icon-align-justify'></i></a>
-                        </div>
-                        <div class='btn-group'>
-                            <a class='btn' data-role='indent' href='#'><i class='icon-indent-right'></i></a>
-                            <a class='btn' data-role='outdent' href='#'><i class='icon-indent-left'></i></a>
-                        </div>
-                        <div class='btn-group'>
-                            <a class='btn' data-role='insertUnorderedList' href='#'><i class='icon-list-ul'></i></a>
-                            <a class='btn' data-role='insertOrderedList' href='#'><i class='icon-list-ol'></i></a>
-                        </div>
-                        <div class='btn-group'>
-                            <a class='btn' data-role='h1' href='#'>h<sup>1</sup></a>
-                            <a class='btn' data-role='h2' href='#'>h<sup>2</sup></a>
-                            <a class='btn' data-role='p' href='#'>p</a>
-                        </div>
-                        <div class='btn-group'>
-                            <a class='btn' data-role='subscript' href='#'><i class='icon-subscript'></i></a>
-                            <a class='btn' data-role='superscript' href='#'><i class='icon-superscript'></i></a>
-                        </div>
-                    </div>
-                    <div id='editor' class='span9' style='' contenteditable>
-                         
-                    </div>
 
+
+  
+            <div class="row" style=" padding-bottom: 1em;">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#home">Content</a></li>
+                    <li><a data-toggle="tab" href="#menu1">Parameter</a></li>
+                    <li><a data-toggle="tab" href="#menu2">Upload</a></li>
+                    <li><a data-toggle="tab" href="#menu3">Preview</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="home" class="tab-pane fade in active">
+
+
+                        <div id='pad-wrapper' class="row">
+                            <div id="editparent">
+                                <div id='editControls' class='span9' style=' padding:5px;'>
+                                    <div class='btn-group'>
+                                        <a class='btn' data-role='undo' href='#'><i class='icon-undo'></i></a>
+                                        <a class='btn' data-role='redo' href='#'><i class='icon-repeat'></i></a>
+                                    </div>
+                                    <div class='btn-group'>
+                                        <a class='btn' data-role='bold' href='#'><b>Bold</b></a>
+                                        <a class='btn' data-role='italic' href='#'><em>Italic</em></a>
+                                        <a class='btn' data-role='underline' href='#'><u><b>U</b></u></a>
+                                        <a class='btn' data-role='strikeThrough' href='#'><strike>abc</strike></a>
+                                    </div>
+                                    <div class='btn-group'>
+                                        <a class='btn' data-role='justifyLeft' href='#'><i class='icon-align-left'></i></a>
+                                        <a class='btn' data-role='justifyCenter' href='#'><i class='icon-align-center'></i></a>
+                                        <a class='btn' data-role='justifyRight' href='#'><i class='icon-align-right'></i></a>
+                                        <a class='btn' data-role='justifyFull' href='#'><i class='icon-align-justify'></i></a>
+                                    </div>
+                                    <div class='btn-group'>
+                                        <a class='btn' data-role='indent' href='#'><i class='icon-indent-right'></i></a>
+                                        <a class='btn' data-role='outdent' href='#'><i class='icon-indent-left'></i></a>
+                                    </div>
+                                    <div class='btn-group'>
+                                        <a class='btn' data-role='insertUnorderedList' href='#'><i class='icon-list-ul'></i></a>
+                                        <a class='btn' data-role='insertOrderedList' href='#'><i class='icon-list-ol'></i></a>
+                                    </div>
+                                    <div class='btn-group'>
+                                        <a class='btn' data-role='h1' href='#'>h<sup>1</sup></a>
+                                        <a class='btn' data-role='h2' href='#'>h<sup>2</sup></a>
+                                        <a class='btn' data-role='p' href='#'>p</a>
+                                    </div>
+                                    <div class='btn-group'>
+                                        <a class='btn' data-role='subscript' href='#'><i class='icon-subscript'></i></a>
+                                        <a class='btn' data-role='superscript' href='#'><i class='icon-superscript'></i></a>
+                                    </div>
+                                </div>
+                                <div id='editor' class='span9' style='' contenteditable>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div id="menu1" class="tab-pane fade">
+                         Preview Width:<br/>
+                        <input id="PreviewWidthId" type="text" name="fname" /><br/>
+						Picture Width:<br/>
+                        <input id="PictureWidthId" type="text" name="fname" /><br/>
+                    </div>
+                    <div id="menu2" class="tab-pane fade">
+					</div>
+                    <div id="menu3" class="tab-pane fade">
+                        <div id="PreviewDivId"></div>
+                    </div>
                 </div>
 
-
             </div>
-                        
-            <div class="row"  >
-                 
+
+<hr/>
+
+
+            <div class="row">
+
                 <button class='btn' onclick="takeScreenShot()"> To image</button>
                 <br/>
-                <div id="TempDivId"   ></div>
-                <br/> Output Image:<input id="PreviewWidthId" type="text" name="fname" />  <input id="PictureWidthId" type="text" name="fname" />  
+                <div id="TempDivId"></div>
+                <br/> Output Image:
                 <br/>
-                <div id="canvasImg" ></div>
+                <div id="canvasImg"></div>
             </div>
-                
-                
+
+
         </div>
 
     </div>
     <div class="footer-banner" style="width:728px; margin:0 auto"></div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+    <!--<script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <script>
         $(document).ready(function() {
             var PictureWidth = document.getElementById("editor").clientWidth;
-			$('#PreviewWidthId').val(PictureWidth-200);
-			$('#PictureWidthId').val(PictureWidth-110);
-            console.log('PictureWidth : '+PictureWidth);
+            $('#PreviewWidthId').val(PictureWidth - 200);
+            $('#PictureWidthId').val(PictureWidth - 110);
+            console.log('PictureWidth : ' + PictureWidth);
             window.takeScreenShot = function() {
                 GeneratingContentDIV();
                 GeneratingPicture();
@@ -112,36 +152,41 @@
 
 
         function GeneratingContentDIV() {
-            
+
             var contentValue = $('#editor').html(); //val
-            
+
             var WechatLogoimageHTML = '<div style="text-align: center;" ><img src="LikeHK_WechatPublicLogo.jpg" alt="QR Code" width="100em" height="100em" /></div>';
             var WechatQRCodeimageHTML = '<div style="text-align: center;" ><img src="LikeHK_Wechat_public_QRCode.jpg" alt="QR Code" width="160em" height="160em" /></div>';
-            
-			
-			var ClientWidthNumber=$('#PreviewWidthId').val();
-            var HeaderDiv = '<div style="background-color: white;width:' +ClientWidthNumber+  'px  "  >';
-            
-            $('#TempDivId').html(HeaderDiv + WechatLogoimageHTML + '' + contentValue + ' <br/>' + WechatQRCodeimageHTML + '<br/></div>');
-			$('#TempDivId').css('width', ClientWidthNumber);
+
+
+            var ClientWidthNumber = $('#PreviewWidthId').val();
+            var HeaderDiv = '<div style="background-color: white;width:' + ClientWidthNumber + 'px  "  >';
+            var OutputHTML = HeaderDiv + WechatLogoimageHTML + '' + contentValue + ' <br/>' + WechatQRCodeimageHTML + '<br/></div>'
+            $('#TempDivId').html(OutputHTML);
+            $('#TempDivId').css('width', ClientWidthNumber);
+
+            //Setting Preview Div 
+
+            $('#PreviewDivId').html(OutputHTML);
+            $('#PreviewDivId').css('width', ClientWidthNumber);
         }
 
         function GeneratingPicture() {
-		
-		
+
+
             html2canvas(document.getElementById("TempDivId"), {
                 onrendered: function(canvas) {
-                    
+
                     var canvasImg = canvas.toDataURL("image/jpg");
                     $('#canvasImg').html('<img src="' + canvasImg + '" alt="">');
-                    // clear preview div $('#TempDivId').html('');
+                    $('#TempDivId').html(''); // clear preview div 
                 },
                 width: $('#PictureWidthId').val()
             });
         }
 
-		
-		
+
+
         $(function() {
             $('#editControls a').click(function(e) {
                 switch ($(this).data('role')) {
@@ -161,4 +206,3 @@
 </body>
 
 </html>
-
