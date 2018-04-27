@@ -112,7 +112,8 @@
             
             var WechatLogoimageHTML = '<div style="text-align: center;" ><img src="LikeHK_WechatPublicLogo.jpg" alt="QR Code" width="100em" height="100em" /></div>';
             var WechatQRCodeimageHTML = '<div style="text-align: center;" ><img src="LikeHK_Wechat_public_QRCode.jpg" alt="QR Code" width="160em" height="160em" /></div>';
-            var HeaderDiv = '<div style="background-color: white;width:' +document.getElementById("editor").clientWidth+  'px  "  >';
+            var ClientWidthNumber=document.getElementById("editor").clientWidth - 50;
+            var HeaderDiv = '<div style="background-color: white;width:' +ClientWidthNumber+  'px  "  >';
             
             $('#TempDivId').html(HeaderDiv + WechatLogoimageHTML + '' + contentValue + ' <br/>' + WechatQRCodeimageHTML + '<br/></div>');
 
