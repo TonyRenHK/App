@@ -107,8 +107,9 @@
 
 
         function GeneratingContentDIV() {
+            
             var contentValue = $('#editor').html(); //val
-            //console.log($('#editor').html());
+            console.log('editor lientWidth : '+document.getElementById("editor").clientWidth );
             var WechatLogoimageHTML = '<div style="text-align: center;" ><img src="LikeHK_WechatPublicLogo.jpg" alt="QR Code" width="100em" height="100em" /></div>'
             var WechatQRCodeimageHTML = '<div style="text-align: center;" ><img src="LikeHK_Wechat_public_QRCode.jpg" alt="QR Code" width="160em" height="160em" /></div>'
 
@@ -122,7 +123,7 @@
                     //document.body.appendChild(canvas);, height: 220
                     var canvasImg = canvas.toDataURL("image/jpg");
                     $('#canvasImg').html('<img src="' + canvasImg + '" alt="">');
-                    $('#TempDivId').html('');
+                    // clear preview div $('#TempDivId').html('');
                 },
                 width: document.getElementById("editor").clientWidth
             });
