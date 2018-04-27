@@ -27,6 +27,20 @@
             box-shadow: inset 0 0 10px silver;
             padding: 1em;
         }
+		.InputText {
+		height: 34px; 
+		padding: 6px 12px; 
+		font-size: 14px; 
+		line-height: 1.42857143; 
+		color: #555; 
+		background-color: #fff; 
+		background-image: none; 
+		border: 1px solid #ccc; 
+		border-radius: 4px;
+		}
+		
+		
+		
     </style>
     <link rel="stylesheet" href="https://dreamsky.github.io/main/blog/common/init.css">
     <script src="https://dreamsky.github.io/main/blog/common/jquery.min.js"></script>
@@ -98,10 +112,15 @@
 
                     </div>
                     <div id="menu1" class="tab-pane fade">
-                         Preview Width:<br/>
-                        <input id="PreviewWidthId" type="text" name="fname" /><br/>
-						Picture Width:<br/>
-                        <input id="PictureWidthId" type="text" name="fname" /><br/>
+                         <label >Preview Width:</label>
+						 <br/>
+                        <input id="PreviewWidthId" type="text" name="fname" class="InputText"  /><br/>
+						<label >Picture Width:</label>
+						<br/>
+                        <input id="PictureWidthId" type="text" name="fname" class="InputText"  /><br/>
+						<label >QR Code Width :</label>
+						<br/>
+						<input id="QRCodeWidthId" type="text" name="fname"  value="160"  class="InputText"  /><br/>
                     </div>
                     <div id="menu2" class="tab-pane fade">
 					</div>
@@ -117,7 +136,7 @@
 
             <div class="row">
 
-                <button class='btn' onclick="takeScreenShot()"> To image</button>
+                <button  class="btn btn-info"  onclick="takeScreenShot()"> To image</button>
                 <br/>
                 <div id="TempDivId"></div>
                 <br/> Output Image:
@@ -151,12 +170,15 @@
 
 
 
-        function GeneratingContentDIV() {
-
+        function GeneratingContentDIV() { 
+		
+		    var QRCodeWidth = $('#QRCodeWidthId').val();
+			console.log('QRCodeWidth : '+QRCodeWidth);
             var contentValue = $('#editor').html(); //val
 
-            var WechatLogoimageHTML = '<div style="text-align: center;" ><img src="LikeHK_WechatPublicLogo.jpg" alt="QR Code" width="100em" height="100em" /></div>';
-            var WechatQRCodeimageHTML = '<div style="text-align: center;" ><img src="LikeHK_Wechat_public_QRCode.jpg" alt="QR Code" width="160em" height="160em" /></div>';
+            var WechatLogoimageHTML = '<div style="text-align: center;" ><img src="LikeHK_WechatPublicLogo.jpg" alt="Logo" width="100em" height="100em" /></div>';
+			
+            var WechatQRCodeimageHTML = '<div style="text-align: center;" ><img src="LikeHK_Wechat_public_QRCode.jpg" alt="QR Code" width="'+QRCodeWidth+'em" height="'+QRCodeWidth+'em" /></div>';
 
 
             var ClientWidthNumber = $('#PreviewWidthId').val();
