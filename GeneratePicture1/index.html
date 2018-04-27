@@ -98,6 +98,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <script>
         $(document).ready(function() {
+            var PictureWidth = document.getElementById("editor").clientWidth;
+            console.log('PictureWidth : '+PictureWidth);
             window.takeScreenShot = function() {
                 GeneratingContentDIV();
                 GeneratingPicture();
